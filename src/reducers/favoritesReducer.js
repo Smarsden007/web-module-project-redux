@@ -1,11 +1,37 @@
+import { TOGGLE_FAVORITES, ADD_FAVORITE,REMOVE_FAVORITE } from './../actions/favoritesActions'
+
+
+
 const initialState = {
-    favorites: [{tittle: "Movie", id:1, }],
+    favorites: [],
     displayFavorites: true,
     
 }
 
+//tested to make sure mve title would transfer to app
+
+
 const favoritesReducer = (state = initialState, action) => {
     switch(action.type) {
+        case(TOGGLE_FAVORITES):{
+        return{
+           ...state,
+           displayFavorites: !state.displayFavorites
+        };
+    };
+        case(ADD_FAVORITE): {
+            return{
+                ...state,
+                favorites: [...state.favorites, action.payload]
+            };
+        };
+        case(REMOVE_FAVORITE): {
+            return{
+                ...state,
+                favorites: state.filter(item=>(item.id !== action.payload))
+            };
+        };
+
         default:
             return(state);
     }
