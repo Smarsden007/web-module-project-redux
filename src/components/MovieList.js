@@ -31,11 +31,11 @@ const MovieList = (props)=> {
         </div>
     );
 }
-const mapeStateToProps = (state) =>{
+const mapStateToProps = (state) =>{
     return({
-        movies:state.movies
+        movies:state.movieReducer.movies
     }
 
     );
 }
-export default connect(mapeStateToProps)(MovieList);
+export default connect(mapStateToProps)(MovieList);

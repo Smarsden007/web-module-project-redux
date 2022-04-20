@@ -21,12 +21,12 @@ const MovieHeader = (props) => {
     </div>);
 }
 
-const mapeStateToProps = (state) =>{
-    return({
-        appTitle:state.appTitle
+const mapStateToProps = (state) =>{
+    return{
+        appTitle:state.movieReducer.appTitle
     }
 
-    );
+    
 }
 
-export default connect(mapeStateToProps)(MovieHeader);
+export default connect(mapStateToProps)(MovieHeader);

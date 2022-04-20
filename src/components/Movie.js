@@ -57,10 +57,10 @@ const Movie = (props) => {
     </div>);
 }
 
-const mapeStateToProps = (state)=> {
+const mapStateToProps = (state)=> {
         return({
-            movies:state.movies
+            movies:state.movieReducer.movies
         })
 }
 
-export default connect(mapeStateToProps, {deleteMovie})(Movie);
+export default connect(mapStateToProps, {deleteMovie})(Movie);
